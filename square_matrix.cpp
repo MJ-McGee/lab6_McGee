@@ -17,21 +17,19 @@ void sum_matrices(int[N][N], int[N][N], int[N][N]);
 void dot_product_matrices(int[N][N], int[N][N], int[N][N]);
 void difference_matrices(int[N][N], int[N][N], int[N][N]);
 
-
-
-
-
 //Driver function
 int main() {
+    char x;
+    fstream file("matrix_input.txt");
 
-
-
-
-
+    for(int i = 0; i< 64; i++) {
+        file >> x;
+        cout << x;
+    }
     return 0;
 }
 
 //Declare functions
-int sum_matrices(int[N][N], int[N][N]) {
+void sum_matrices(int[N][N], int[N][N], int[N][N]) {
     return;
 }
