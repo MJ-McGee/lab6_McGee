@@ -55,6 +55,16 @@ int main() {
 
         cout << "\nMatrix B:" << endl;
         print_matrix(B, n);
+
+        //Find the sum of A and B, then print it
+        sum_matrices(A, B, C, n);
+        cout << "\nMatrix Sum (A + B):" << endl;
+        print_matrix(C, n);
+
+        //Find the dot product of A and B, then print it
+        dot_product_matrices(A, B, C, n);
+        cout << "\nMatrix Product (A * B):" << endl;
+        print_matrix(C, n);
     }
     else {
         cout << n << "x" << n << " is too large. Please enter a smaller matrix size!" << endl;
@@ -64,11 +74,36 @@ int main() {
 }
 
 //Declare functions
+
+//Print the square matrix given it and its size 
 void print_matrix(int A[N][N], int n) {
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
             cout << A[i][j] << " ";
         }
         cout << endl;
+    }
+}
+
+//Find the sum of matrices A and B, and store it in the third matrix C
+void sum_matrices(int A[N][N], int B[N][N], int C[N][N], int n) {
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+}
+
+//Find the dot product of A and B, and store it in the third matrix C
+void dot_product_matrices(int A[N][N], int B[N][N], int C[N][N], int n) {
+    int sum;
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            sum = 0;
+            for(int k = 0; k < n; k++) {
+                sum += A[i][k] * B[k][j];
+            }
+            C[i][j] = sum;
+        }
     }
 }
