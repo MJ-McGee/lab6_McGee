@@ -65,6 +65,11 @@ int main() {
         dot_product_matrices(A, B, C, n);
         cout << "\nMatrix Product (A * B):" << endl;
         print_matrix(C, n);
+
+        //Find the difference of A and B, then print it
+        difference_matrices(A, B, C, n);
+        cout << "\nMatrix Difference (A - B):" << endl;
+        print_matrix(C, n);
     }
     else {
         cout << n << "x" << n << " is too large. Please enter a smaller matrix size!" << endl;
@@ -104,6 +109,15 @@ void dot_product_matrices(int A[N][N], int B[N][N], int C[N][N], int n) {
                 sum += A[i][k] * B[k][j];
             }
             C[i][j] = sum;
+        }
+    }
+}
+
+//Find the difference of A and B, and store it in the third matrix C
+void difference_matrices(int A[N][N], int B[N][N], int C[N][N], int n) {
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            C[i][j] = A[i][j] - B[i][j];
         }
     }
 }
